@@ -2,7 +2,7 @@
 import {createBrowserRouter, createRoutesFromElements, RouterProvider, Route} from 'react-router-dom';
 
 /** React Query **/  
-import { QueryClientProvider,QueryClient } from 'react-query'; 
+import { QueryClientProvider,QueryClient } from '@tanstack/react-query'; 
 
 /** Root layout **/  
 import RootLayout from './pages/root-layouts/RootLayout';
@@ -22,27 +22,24 @@ import './App.css';
 
 const queryClient = new QueryClient();
 
-function App() {
-
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route element={<RootLayout/>} errorElement={<ErrorPage />} >      
-          <Route path="/film-info" element={<HomePage />} />
-          <Route path="/tv-shows" element={<TvShows />} />
-          <Route path="/saved-list" element={<SavedPage />} />
-          <Route path="*" element={<NotFound />} />
-      </Route>
-      
-    )
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route element={<RootLayout/>} errorElement={<ErrorPage />} >      
+        <Route path="/film-info" element={<HomePage />} />
+        <Route path="/tv-shows" element={<TvShows />} />
+        <Route path="/saved-list" element={<SavedPage />} />
+        <Route path="*" element={<NotFound />} />
+    </Route>
+  )
 )
 
-
+function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-          <div className = "App">
-              <RouterProvider router = {router} />      
-          </div>
-    </QueryClientProvider>
+    <div className = "App">
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router = {router} />      
+        </QueryClientProvider>
+    </div>
   );
 }
 

@@ -4,7 +4,7 @@ import {useState} from 'react';
 import axios from 'axios';
 
 /** React query **/  
-import {useQuery} from 'react-query';
+import {useQuery} from '@tanstack/react-query';
 
 /** panel page components **/  
 import NewReleased from '../components/panel-components/home-page-panels/NewReleased';
@@ -27,8 +27,6 @@ const fetchHighlyRated = () => {
 }
 
 export default function HomePage() {
-
-
     const {isLoading:newReleasedLoading ,data:fetchNewRlsdMovies} = useQuery({ queryKey: ['upcoming'], queryFn: fetchNewReleased, staleTime:1800000}
     )
     

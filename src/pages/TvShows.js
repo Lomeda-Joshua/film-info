@@ -2,7 +2,7 @@
 import axios from 'axios';
 
 /** React query **/  
-import {useQuery} from 'react-query';
+import {useQuery} from '@tanstack/react-query';
 
 /** panel page components **/  
 import NewReleased from '../components/panel-components/tv-shows-page-panels/NewReleased';
