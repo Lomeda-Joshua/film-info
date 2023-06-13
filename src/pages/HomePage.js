@@ -1,4 +1,4 @@
-
+import './pages_styles.css';
 
 export default function HomePage() {
     return(
