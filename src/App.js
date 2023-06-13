@@ -25,7 +25,6 @@ function App() {
       <Route element={<RootLayout/>} errorElement={<ErrorPage />} >          
               <Route path="/film-info" element={<HomePage />} />
       </Route>
-      
     )
 )
 
