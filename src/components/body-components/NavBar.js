@@ -1,10 +1,7 @@
-import React, {useState} from 'react';
-import {NavLink, Link} from 'react-router-dom';
+import {NavLink} from 'react-router-dom';
 
-export default function NavBar(){
-
-    const [saveCount,setsaveCount] = useState();
-    
+function NavBar(){
+   
     return(
         <>
             <div className='row' style={{width:"90%",margin:"auto"}}>
@@ -18,13 +15,13 @@ export default function NavBar(){
                             <div className="collapse navbar-collapse" id="navbarSupportedContent">
                                 <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                                     <li className="nav-item">
-                                        <NavLink className="nav-link" aria-current="page" to="/">Home</NavLink>
+                                        <NavLink className="nav-link" aria-current="page" to="/film-info">Home</NavLink>
                                     </li>
                                     <li className="nav-item">
                                         <NavLink className="nav-link" to="tv-shows">TV Shows</NavLink>
                                     </li>
                                     <li className="nav-item">
-                                        <NavLink className="nav-link" to="saved-list">Saved <sup style={{color:"white",fontWeight:900}}>{saveCount}</sup></NavLink>
+                                        <NavLink className="nav-link" to="saved-list">Saved <sup style={{color:"white",fontWeight:900}}></sup></NavLink>
                                     </li>
                                 </ul>
                             </div>
@@ -34,6 +31,8 @@ export default function NavBar(){
         </>
     )
 }
+
+export default NavBar;
 
 
 

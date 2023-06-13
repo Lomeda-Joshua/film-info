@@ -27,7 +27,7 @@ function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route element={<RootLayout/>} errorElement={<ErrorPage />} >      
-          <Route path="/" element={<HomePage />} />
+          <Route path="/film-info" element={<HomePage />} />
           <Route path="/tv-shows" element={<TvShows />} />
           <Route path="/saved-list" element={<SavedPage />} />
           <Route path="*" element={<NotFound />} />

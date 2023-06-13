@@ -7,7 +7,7 @@ export default function FooterMain(){
                     <div className="col-3">
                         <ul>
                             <li style={{textAlign:"right"}}>
-                            <img src ="./icons_logo/film-info-icon-bar.png" style={{width:"30%"}}/>
+                            <img src ="../logo/film-info-icon-bar.png" style={{width:"30%"}}/>
                             <h4 style={{paddingTop:"10px"}}><b><span style = {{color:"#A45A19"}}>Film</span></b> | <span style = {{fontWeight:800}}>Info</span></h4>
                             </li>
                         </ul>

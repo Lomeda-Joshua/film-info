@@ -4,7 +4,7 @@ import NavBar from '../../components/body-components/NavBar';
 import Footer from '../../components/body-components/Footer';
 
 
-export default function RootLayout(){
+function RootLayout(){
     return(
         <>
            <NavBar />
@@ -13,3 +13,5 @@ export default function RootLayout(){
         </>
     )
 }
+
+export default RootLayout
