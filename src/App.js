@@ -1,4 +1,10 @@
-import logo from './logo.svg';
+/** React providers **/  
+import {createBrowserRouter, createRoutesFromElements, RouterProvider, Route} from 'react-router-dom';
+
+/** React Query **/  
+import { QueryClientProvider,QueryClient } from 'react-query'; 
+import { ReactQueryDevtools } from 'react-query/devtools';
+
 import './App.css';
 
 function App() {
