@@ -5,25 +5,33 @@ import {createBrowserRouter, createRoutesFromElements, RouterProvider, Route} fr
 import { QueryClientProvider,QueryClient } from 'react-query'; 
 import { ReactQueryDevtools } from 'react-query/devtools';
 
+/** Root layout **/  
+import RootLayout from './pages/root-layouts/RootLayout';
+
+/** Pages routing **/  
+import HomePage from './pages/HomePage';
+
+/** Error handling **/ 
+import ErrorPage from './pages/error-pages/ErrorPage'; 
+
+
+/** stylesheet **/  
 import './App.css';
 
 function App() {
+
+  const router = createBrowserRouter(
+    createRoutesFromElements(
+      <Route element={<RootLayout/>} errorElement={<ErrorPage />} >          
+              <Route path="/film-info" element={<HomePage />} />
+      </Route>
+      
+    )
+)
+
   return (
     <div className="App">
-      <header className="App-header">
-        
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <RouterProvider router = {router} />      
     </div>
   );
 }
