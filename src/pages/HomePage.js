@@ -14,6 +14,7 @@ import HighlyRated from '../components/panel-components/home-page-panels/HighlyR
 /** stylesheet **/  
 import './styles.css';
 
+/* 
 const fetchNewReleased = () => {
     return axios.get('https://api.themoviedb.org/3/movie/upcoming?api_key=ffbd3a2d02fe137e41388eacf6dc463e&language=en-US&page=1').then((response)=>response.data)
 }
@@ -26,7 +27,10 @@ const fetchHighlyRated = () => {
     return axios.get('https://api.themoviedb.org/3/movie/top_rated?api_key=ffbd3a2d02fe137e41388eacf6dc463e&language=en-US&page=1').then((response)=>response.data)
 }
 
+ */
+
 export default function HomePage() {
+    /* 
     const {isLoading:newReleasedLoading ,data:fetchNewRlsdMovies} = useQuery({ queryKey: ['upcoming'], queryFn: fetchNewReleased, staleTime:1800000}
     )
     
@@ -35,7 +39,7 @@ export default function HomePage() {
 
     const {isLoading:highlyRtLoading, data:fetchHgrMovies} = useQuery({ queryKey: ['toprated'], queryFn: fetchHighlyRated ,staleTime:1800000}
     )
-    
+     */
 
     const [clickStatus,setclickStatus] = useState(false);
 
@@ -67,9 +71,9 @@ export default function HomePage() {
     }
 
     
-    if(newReleasedLoading) return <>{loadingPanel}</>
+/*     if(newReleasedLoading) return <>{loadingPanel}</>
     if(trendingNowLoading) return <>{loadingPanel}</>
-    if(highlyRtLoading) return <>{loadingPanel}</>
+    if(highlyRtLoading) return <>{loadingPanel}</> */
 
     function loadingPanel(){
         return(
@@ -98,12 +102,12 @@ export default function HomePage() {
                     <h3>New Releases</h3>
                     <div className="container--fluid">
                         <div className="row--data">
-                            {
+{/*                             {
                                 fetchNewRlsdMovies.results.map(
                                     (data)=>{
                                     return <NewReleased key ={data.id} status={clickStatus} handleClick={panelSelected} panelDisplay = {false} dataItems={data}/>
                                 })
-                            }
+                            } */}
                         </div>
                     </div>
                 </div>
@@ -112,12 +116,12 @@ export default function HomePage() {
                     <h3>Trending Now</h3>
                     <div className='container--fluid'>
                         <div className="row--data">
-                            {
+{/*                             {
                                 fetchTrdgNowMovies.results.map(
                                     (data)=>{
                                     return <TrendingNow key={data.id} handleClick={panelSelected} panelDisplay = {false} dataItems={data}/>
                                 })
-                            }
+                            } */}
                         </div>
                     </div>
                 </div>
@@ -126,11 +130,11 @@ export default function HomePage() {
                     <h3>Highly rated</h3>
                     <div className='container--fluid'>
                         <div className='row--data'>
-                            {
+{/*                             {
                                 fetchHgrMovies.results.map((data)=>{
                                     return <HighlyRated key={data.id} handleClick={panelSelected} panelDisplay = {false} dataItems={data}/>
                                 })
-                            }
+                            } */}
                         </div>
                     </div>
                 </div>                
