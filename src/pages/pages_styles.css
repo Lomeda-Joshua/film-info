@@ -670,6 +670,7 @@
     
     
     .foregrounds--cover{
+      background-image: url("../../public/banner/background--cover--photo.png");
       background-size: cover;
       background-repeat: no-repeat;
       width:100%;
