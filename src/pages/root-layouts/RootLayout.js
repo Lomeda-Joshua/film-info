@@ -14,4 +14,4 @@ function RootLayout(){
     )
 }
 
-export default RootLayout
+export default RootLayout;
