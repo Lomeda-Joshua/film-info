@@ -12,14 +12,14 @@ import HomePage from './pages/HomePage';
 import TvShows from './pages/TvShows';
 import SavedPage from './pages/SavedPage';
 
-
 /** Error handling **/ 
 import ErrorPage from './pages/error-pages/ErrorPage'; 
+import NotFound from './pages/error-pages/NotFoundPage';
 
 /** stylesheet **/  
 import './App.css';
 
-
+const queryClient = new QueryClient();
 function App(){
 
 
@@ -29,15 +29,18 @@ function App(){
           <Route path="/film-info" element={<HomePage />} />
           <Route path="/tv-shows" element={<TvShows />} />
           <Route path="/saved-list" element={<SavedPage />} />
+          <Route path="/*" element={<NotFound />} />
       </Route>
     )
   )
 
 
   return (
+    <QueryClientProvider client={queryClient}>
     <div className="App">
        <RouterProvider router = {router} />  
     </div>
+    </QueryClientProvider>
   );
 }
 
