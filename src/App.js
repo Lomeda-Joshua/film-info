@@ -14,23 +14,14 @@ import HomePage from './pages/HomePage';
 /** Error handling **/ 
 import ErrorPage from './pages/error-pages/ErrorPage'; 
 
-
 /** stylesheet **/  
 import './App.css';
 
 function App() {
 
-  const router = createBrowserRouter(
-    createRoutesFromElements(
-      <Route element={<RootLayout/>} errorElement={<ErrorPage />} >          
-              <Route path="/film-info" element={<HomePage />} />
-      </Route>
-    )
-)
-
   return (
     <div className="App">
-        <RouterProvider router = {router} />      
+       <h1 style={{color:"white"}}>Hello world</h1>  
     </div>
   );
 }

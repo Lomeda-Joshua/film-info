@@ -1,6 +1,6 @@
 import './pages_styles.css';
 
-export default function HomePage() {
+function HomePage() {
     return(
         <>
             <div className='body-home'>
@@ -8,7 +8,7 @@ export default function HomePage() {
                 <div className = "foregrounds--cover">
                     <div className="container--contain">
                         <div className="background--contain">
-                            <h1>WELCOME TO <span style={{color:"rgb(164, 90, 25)"}}>FILM</span>|INFO</h1>
+                            <h1>WELCOME TO FILM|INFO</h1>
                             <p>Browse and save Films and TV shows</p>
                         </div>
                     </div>
@@ -47,6 +47,8 @@ export default function HomePage() {
     );
 
 }
+
+export default HomePage;
 
 
 

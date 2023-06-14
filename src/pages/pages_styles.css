@@ -24,7 +24,7 @@
     }
     
     .content-wrap .content-logo{
-      background-image: url("../../public/logo/film_info_icon2.png");
+      
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -575,7 +575,7 @@
     }
     
     .content-wrap .content-logo{
-      background-image: url("../../public/logo/film_info_icon2.png");
+      
       background-size: contain;
       background-position: center;
       background-repeat: no-repeat;
@@ -670,7 +670,6 @@
     
     
     .foregrounds--cover{
-      background-image: url("../../public/banner/background--cover--photo.png");
       background-size: cover;
       background-repeat: no-repeat;
       width:100%;
@@ -693,12 +692,13 @@
     }
     
     .background--contain .banner--logo{
-      background-image: url();
+      
       background-size: contain;
       background-repeat: no-repeat;
       height:500px;
       width:100%;
     }
+
     
     .background--logos{
       width:100%;

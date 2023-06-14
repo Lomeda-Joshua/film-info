@@ -1,4 +1,4 @@
-export default function FooterMain(){
+function FooterMain(){
 
     return(
         <footer className="footer--main">
@@ -50,3 +50,5 @@ export default function FooterMain(){
         </footer>
     )
   }
+
+  export default FooterMain;
