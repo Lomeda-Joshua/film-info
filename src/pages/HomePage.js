@@ -27,12 +27,9 @@ const fetchHighlyRated = () => {
 
 function HomePage() {
 
-    const {isLoading:newReleasedLoading ,data:fetchNewRlsdMovies} = useQuery({ queryKey: ['upcoming'], queryFn: fetchNewReleased, staleTime:1800000}
-    )
-    const {isLoading:trendingNowLoading ,data:fetchTrdgNowMovies} = useQuery({ queryKey: ['trending'], queryFn: fetchTrendingNow ,staleTime:1800000}
-    )
-    const {isLoading:highlyRtLoading, data:fetchHgrMovies} = useQuery({ queryKey: ['toprated'], queryFn: fetchHighlyRated ,staleTime:1800000}
-    )
+    const {isLoading:newReleasedLoading ,data:fetchNewRlsdMovies} = useQuery({ queryKey: ['upcoming'], queryFn: fetchNewReleased, staleTime:1800000})
+    const {isLoading:trendingNowLoading ,data:fetchTrdgNowMovies} = useQuery({ queryKey: ['trending'], queryFn: fetchTrendingNow ,staleTime:1800000})
+    const {isLoading:highlyRtLoading, data:fetchHgrMovies} = useQuery({ queryKey: ['toprated'], queryFn: fetchHighlyRated ,staleTime:1800000})
 
     const [newReleased,setnewReleased] = useState([]);
     const [trendingNow,settrendingNow] = useState([]);
@@ -128,7 +125,7 @@ function HomePage() {
                     <h3>New Releases</h3>
                     <div className="container--fluid">
                         <div className="row--data">
-                        {
+                            {
                                 fetchNewRlsdMovies.results.map(
                                     (data)=>{
                                     return <NewReleased key ={data.id} status={clickStatus} handleClick={panelSelected} panelDisplay = {false} dataItems={data}/>
@@ -156,7 +153,7 @@ function HomePage() {
                     <h3>Highly rated</h3>
                     <div className='container--fluid'>
                         <div className='row--data'>
-                        {
+                            {
                                 fetchHgrMovies.results.map((data)=>{
                                     return <HighlyRated key={data.id} handleClick={panelSelected} panelDisplay = {false} dataItems={data}/>
                                 })

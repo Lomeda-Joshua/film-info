@@ -57,7 +57,6 @@ function SavedPage(){
                     </div>
                 </div>
 
-
                 <div className="newReleases-section">
                     <h3>Saved</h3>
                     <div className="container--fluid">

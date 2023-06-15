@@ -446,10 +446,10 @@
     
     /* Modal Content/Box */
     .modal-content {
-      background-color: #555;
+      background-color: #555 !important;
       margin: 15% auto; /* 15% from the top and centered */
       padding: 20px;
-      width: 30%; /* Could be more or less, depending on screen size */
+      width: 30% !important; /* Could be more or less, depending on screen size */
     }
     
     .modal-links{
@@ -626,6 +626,7 @@
     box-sizing: border-box;
     }
     
+
     .registration_form input[type="submit"]{
       width: 100%;
       margin:30px 0;
