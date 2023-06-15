@@ -12,7 +12,7 @@ function SavedPage(){
 
     useEffect(
         ()=>{
-            if(dataSaved){
+            if(dataSaved == []){
                 setpanelSaved(
                     ()=>dataSaved.map(
                         (data) => <Saved panelDisplay={false} dataItems={data}/>

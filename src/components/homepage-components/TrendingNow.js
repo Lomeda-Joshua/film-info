@@ -5,6 +5,8 @@ export default function TrendingNow(props){
     
     const poster_title = `https://image.tmdb.org/t/p/original/${props.dataItems.poster_path}`;
 
+    console.log(props);
+
     const [displayStatus,setDisplayStatus] = useState(props.panelDisplay);
 
     function displayPanel(){
@@ -23,11 +25,6 @@ export default function TrendingNow(props){
         left: panelVisibilityLength
     }
 
-    const [selectedId,setselectedId] = useState(
-        props.dataItems.overview
-    );
-
-
     const dateOpen = new Date(props.dataItems.release_date);
 
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -37,8 +34,8 @@ export default function TrendingNow(props){
 
     return(
         <>
-            <div className = "card--movie">    
-                <div onClick={displayPanel} className="poster--content" style={{backgroundImage:`url("${poster_title}")`,cursor:"pointer"}} >                
+            <div className = "card--movie" onClick={displayPanel}>    
+                <div className="poster--content" style={{backgroundImage:`url("${poster_title}")`,cursor:"pointer"}} >                
                 </div>
 
                 <div className="panel--info" style={infoPanel}>
@@ -46,7 +43,8 @@ export default function TrendingNow(props){
                     <p style = {textOverview} >{props.dataItems.overview}</p>
                     <p><span style = {{fontWeight:800}}>Date released:</span> {`${month} ${day}, ${year}`}</p>
                     <p style = {{lineHeight:"1px"}}><span style = {{fontWeight:800}}>Popularity count:</span> {props.dataItems.vote_average}</p>
-                    <button className = "addBtn" onClick={()=>props.handleClick(props.movieId)}>Add to list</button>
+                    
+                    <button className = "addBtn" onClick={()=>props.handleClick(props.dataItems)}>Add to list</button>
                 </div>
 
             </div>

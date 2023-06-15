@@ -34,32 +34,74 @@ function HomePage() {
     const {isLoading:highlyRtLoading, data:fetchHgrMovies} = useQuery({ queryKey: ['toprated'], queryFn: fetchHighlyRated ,staleTime:1800000}
     )
 
-    const [movieData,setmovieData] = useState([]);
-    localStorage.setItem("data-saved",JSON.stringify(movieData));
+
+
+    const [newReleased,setnewReleased] = useState([]);
+
+    const [trendingNow,settrendingNow] = useState([]);
+
+    const [highlyRated,sethighlyRated] = useState([]);
+
+    localStorage.setItem("data-saved",JSON.stringify(newReleased));
+    localStorage.setItem("data-saved",JSON.stringify(trendingNow));
+    localStorage.setItem("data-saved",JSON.stringify(highlyRated));
+
+
     const [clickStatus,setclickStatus] = useState(false);
 
+
+
     const panelSelected = (dataSelected) => { 
+
         setclickStatus(
             prevStatus => !prevStatus
         )
-
-        console.log(movieData);
-        console.log(clickStatus);
-
-        
-
-        if(movieData.length <= 0){
-            setmovieData(
+    
+        /* New Released local storage */
+        if(newReleased.length <= 0){
+            setnewReleased(
                 (prevData) => [...prevData, dataSelected]
             )
             console.log("bagong pasok na data");
         }else{
-            setmovieData(
+            setnewReleased(
                 (prevData) => [...prevData, dataSelected]
             )  
             console.log("add to the existing data");
         }
+
+
+
+        /* trending now local storage */
+        if(trendingNow.length <= 0){
+            settrendingNow(
+                (prevData) => [...prevData, dataSelected]
+            )
+            console.log("bagong pasok na data");
+        }else{
+            settrendingNow(
+                (prevData) => [...prevData, dataSelected]
+            )  
+            console.log("add to the existing data");
+        }
+
+
+        /* Highly rated local storage */
+        if(highlyRated.length <= 0){
+            sethighlyRated(
+                (prevData) => [...prevData, dataSelected]
+            )
+            console.log("bagong pasok na data");
+        }else{
+            sethighlyRated(
+                (prevData) => [...prevData, dataSelected]
+            )  
+            console.log("add to the existing data");
+        }
+
+
     }
+
 
     if(newReleasedLoading) return <>{loadingPanel}</>
     if(trendingNowLoading) return <>{loadingPanel}</>
@@ -108,7 +150,7 @@ function HomePage() {
                             {
                                 fetchTrdgNowMovies.results.map(
                                     (data)=>{
-                                    return <TrendingNow key={data.id} handleClick={panelSelected} panelDisplay = {false} dataItems={data}/>
+                                    return <TrendingNow key={data.id} status={clickStatus} handleClick={panelSelected} panelDisplay = {false} dataItems={data}/>
                                 })
                             }
                         </div>

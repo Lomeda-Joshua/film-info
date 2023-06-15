@@ -13,12 +13,6 @@ export default function NewReleased(props){
         )
     }
 
-    function closePanel(){
-        setDisplayStatus(
-            (prevState)=>{return !prevState}
-        )
-    }
-
     const textOverview = { whiteSpace:"pre-line", width:"300px",height:"200px", overflow:"hidden", textOverflow:"ellipsis" }
 
     
@@ -32,6 +26,7 @@ export default function NewReleased(props){
 
 
     const dateOpen = new Date(props.dataItems.release_date);
+    
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const month = months[dateOpen.getMonth()];
     const year = dateOpen.getFullYear();
