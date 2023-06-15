@@ -34,12 +34,8 @@ function HomePage() {
     const {isLoading:highlyRtLoading, data:fetchHgrMovies} = useQuery({ queryKey: ['toprated'], queryFn: fetchHighlyRated ,staleTime:1800000}
     )
 
-
-
     const [newReleased,setnewReleased] = useState([]);
-
     const [trendingNow,settrendingNow] = useState([]);
-
     const [highlyRated,sethighlyRated] = useState([]);
 
     localStorage.setItem("data-saved",JSON.stringify(newReleased));
@@ -48,7 +44,6 @@ function HomePage() {
 
 
     const [clickStatus,setclickStatus] = useState(false);
-
 
 
     const panelSelected = (dataSelected) => { 
