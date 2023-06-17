@@ -35,15 +35,15 @@ function HomePage() {
     const [trendingNow,settrendingNow] = useState([]);
     const [highlyRated,sethighlyRated] = useState([]);
 
-    localStorage.setItem("data-saved",JSON.stringify(newReleased));
-    localStorage.setItem("data-saved",JSON.stringify(trendingNow));
-    localStorage.setItem("data-saved",JSON.stringify(highlyRated));
+    localStorage.setItem("data-saved0",JSON.stringify(newReleased));
+    localStorage.setItem("data-saved1",JSON.stringify(trendingNow));
+    localStorage.setItem("data-saved2",JSON.stringify(highlyRated));
 
 
     const [clickStatus,setclickStatus] = useState(false);
 
 
-    const panelSelected = (dataSelected) => { 
+    const panelSelectedNewReleased = (dataSelected1) => { 
 
         setclickStatus(
             prevStatus => !prevStatus
@@ -52,46 +52,53 @@ function HomePage() {
         /* New Released local storage */
         if(newReleased.length <= 0){
             setnewReleased(
-                (prevData) => [...prevData, dataSelected]
+                (prevData) => [...prevData,dataSelected1]
             )
-            console.log("bagong pasok na data");
+            alert("New released film title added to saved list");
         }else{
             setnewReleased(
-                (prevData) => [...prevData, dataSelected]
-            )  
-            console.log("add to the existing data");
+                (prevData) => [...prevData,dataSelected1]
+            )             
         }
+    }
 
-
+    const panelSelectedTrendingNow = (dataSelected2) => {
+        setclickStatus(
+            prevStatus => !prevStatus
+        )
 
         /* trending now local storage */
         if(trendingNow.length <= 0){
             settrendingNow(
-                (prevData) => [...prevData, dataSelected]
+                (prevData) => [...prevData,dataSelected2]
             )
-            console.log("bagong pasok na data");
+
+            alert("Trending now film title added to saved list");
+            
         }else{
             settrendingNow(
-                (prevData) => [...prevData, dataSelected]
+                (prevData) => [...prevData,dataSelected2 ]
             )  
-            console.log("add to the existing data");
+            
         }
+    }
 
+    const panelSelectedHighlyRated = (dataSelected3) => {
+        setclickStatus(
+            prevStatus => !prevStatus
+        )
 
         /* Highly rated local storage */
         if(highlyRated.length <= 0){
             sethighlyRated(
-                (prevData) => [...prevData, dataSelected]
+                (prevData) => [...prevData,dataSelected3 ]
             )
-            console.log("bagong pasok na data");
+            alert("Highly rated film title added to saved list");
         }else{
             sethighlyRated(
-                (prevData) => [...prevData, dataSelected]
+                (prevData) => [...prevData,dataSelected3 ]
             )  
-            console.log("add to the existing data");
         }
-
-
     }
 
 
@@ -128,7 +135,7 @@ function HomePage() {
                             {
                                 fetchNewRlsdMovies.results.map(
                                     (data)=>{
-                                    return <NewReleased key ={data.id} status={clickStatus} handleClick={panelSelected} panelDisplay = {false} dataItems={data}/>
+                                    return <NewReleased key ={data.id} status={clickStatus} handleClick={panelSelectedNewReleased} panelDisplay = {false} dataItems={data}/>
                                 })
                             }
                         </div>
@@ -142,7 +149,7 @@ function HomePage() {
                             {
                                 fetchTrdgNowMovies.results.map(
                                     (data)=>{
-                                    return <TrendingNow key={data.id} status={clickStatus} handleClick={panelSelected} panelDisplay = {false} dataItems={data}/>
+                                    return <TrendingNow key={data.id}status={clickStatus}  handleClick={panelSelectedTrendingNow} panelDisplay = {false} dataItems={data}/>
                                 })
                             }
                         </div>
@@ -155,7 +162,7 @@ function HomePage() {
                         <div className='row--data'>
                             {
                                 fetchHgrMovies.results.map((data)=>{
-                                    return <HighlyRated key={data.id} handleClick={panelSelected} panelDisplay = {false} dataItems={data}/>
+                                    return <HighlyRated key={data.id} status={clickStatus} handleClick={panelSelectedHighlyRated} panelDisplay = {false} dataItems={data}/>
                                 })
                             }
                         </div>

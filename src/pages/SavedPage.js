@@ -1,13 +1,14 @@
 import {useState,useEffect} from 'react';
 import {NavLink} from 'react-router-dom';
 
-import Saved from '../components/savedpage-components/SavedPage';
+import Saved from '../components/savedpage-components/SavedPanel';
 
 import './pages_styles.css';
 
 function SavedPage(){
 
-    const dataSaved = JSON.parse(localStorage.getItem("data-saved"));
+    const dataSaved = JSON.parse(localStorage.getItem("data-saved0"));
+    
     const [panelSaved,setpanelSaved] = useState(AddToSaved());
 
     useEffect(

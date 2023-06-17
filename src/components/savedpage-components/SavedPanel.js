@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import '../component-styles.css';
 
-export default function Saved(props){
+export default function SavedPanel(props){
 
     const poster_title = `https://image.tmdb.org/t/p/original/${props.dataItems.poster_path}`;
     
@@ -11,8 +11,6 @@ export default function Saved(props){
             (prevState)=>{return !prevState}
         )
     }
-
-    console.log(props.panelDisplay);    
 
     const textOverview = { whiteSpace:"pre-line", width:"300px",height:"200px", overflow:"hidden", textOverflow:"ellipsis" }
 
@@ -24,10 +22,6 @@ export default function Saved(props){
         left: panelVisibilityLength
     }
 
-    const [selectedId,setselectedId] = useState(
-        props.dataItems.overview
-    );
- 
 
     const dateOpen = new Date(props.dataItems.release_date);
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];

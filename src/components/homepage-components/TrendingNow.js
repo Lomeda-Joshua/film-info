@@ -4,9 +4,7 @@ import '../component-styles.css';
 export default function TrendingNow(props){
     
     const poster_title = `https://image.tmdb.org/t/p/original/${props.dataItems.poster_path}`;
-
-    console.log(props);
-
+    
     const [displayStatus,setDisplayStatus] = useState(props.panelDisplay);
 
     function displayPanel(){
