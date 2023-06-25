@@ -6,10 +6,8 @@ import axios from 'axios';
 /** React query **/  
 import {useQuery} from '@tanstack/react-query';
 
-/** panel page components **/  
-import NewReleased from '../components/homepage-components/NewReleased';
-import TrendingNow from '../components/homepage-components/TrendingNow';
-import HighlyRated from '../components/homepage-components/HighlyRated';
+/** panel page component **/  
+import CardComponent from '../components/panel-components/CardComponent';
 
 import './pages_styles.css';
 
@@ -135,7 +133,7 @@ function HomePage() {
                             {
                                 fetchNewRlsdMovies.results.map(
                                     (data)=>{
-                                    return <NewReleased key ={data.id} status={clickStatus} handleClick={panelSelectedNewReleased} panelDisplay = {false} dataItems={data}/>
+                                    return <CardComponent key ={data.id} status={clickStatus} handleClick={panelSelectedNewReleased} panelDisplay = {false} dataItems={data}/>
                                 })
                             }
                         </div>
@@ -149,7 +147,7 @@ function HomePage() {
                             {
                                 fetchTrdgNowMovies.results.map(
                                     (data)=>{
-                                    return <TrendingNow key={data.id}status={clickStatus}  handleClick={panelSelectedTrendingNow} panelDisplay = {false} dataItems={data}/>
+                                    return <CardComponent key={data.id}status={clickStatus}  handleClick={panelSelectedTrendingNow} panelDisplay = {false} dataItems={data}/>
                                 })
                             }
                         </div>
@@ -162,7 +160,7 @@ function HomePage() {
                         <div className='row--data'>
                             {
                                 fetchHgrMovies.results.map((data)=>{
-                                    return <HighlyRated key={data.id} status={clickStatus} handleClick={panelSelectedHighlyRated} panelDisplay = {false} dataItems={data}/>
+                                    return <CardComponent key={data.id} status={clickStatus} handleClick={panelSelectedHighlyRated} panelDisplay = {false} dataItems={data}/>
                                 })
                             }
                         </div>

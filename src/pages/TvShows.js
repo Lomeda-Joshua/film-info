@@ -7,34 +7,45 @@ import axios from 'axios';
 import {useQuery} from '@tanstack/react-query';
 
 /** panel page components **/  
-import NewReleased from '../components/tvshows-components/TvNewReleased';
-import TvTrendingNow from '../components/tvshows-components/TvTrendingNow';
-import TvHighlyRated from '../components/tvshows-components/TvHighlyRated';
+import TvShowPanel from '../components/tvshows-components/TvShowPanel';
 
 import './pages_styles.css';
 
-const fetchNewReleased = () => {
+const options = {
+    method: 'GET',
+    headers: {
+      accept: 'application/json',
+      Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJmZmJkM2EyZDAyZmUxMzdlNDEzODhlYWNmNmRjNDYzZSIsInN1YiI6IjYyNzEwOTRlNzJkODU1MWE0YjJkYjBlOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.n2sWfmHhRe-5ZHvBGr7R-KtIZ2SoIrtO1Hp7TShBEXM'
+    }
+  };
+  
+const FetchTrendingApi = () =>  fetch('https://api.themoviedb.org/3/trending/tv/day?language=en-US', options)
+    .then(response => response.json())
+    .then(response => response)
+    .catch(err => console.error(err));
+
+
+
+const FetchNewReleasedTV = () => {
     return axios.get('https://api.themoviedb.org/3/tv/on_the_air?api_key=ffbd3a2d02fe137e41388eacf6dc463e&language=en-US&page=1').then((response)=>response.data)
 }
 
-const fetchTrendingNow = () => {
-    return axios.get('https://api.themoviedb.org/3/tv/popular?api_key=ffbd3a2d02fe137e41388eacf6dc463e&language=en-US&page=1').then((response)=>response.data)
-}
-
-const fetchHighlyRated = () => {
-    return axios.get('https://api.themoviedb.org/3/movie/top_rated?api_key=ffbd3a2d02fe137e41388eacf6dc463e&language=en-US&page=1').then((response)=>response.data)
+const FetchHighlyRatedTV = () => {
+    return axios.get('https://api.themoviedb.org/3/tv/top_rated?api_key=ffbd3a2d02fe137e41388eacf6dc463e&language=en-US&page=1').then((response)=>response.data)
 }
 
 function TvShows(){
 
-    const {isLoading:newReleasedLoading ,data:fetchNewRlsdTv} = useQuery({ queryKey: ['upcoming'], queryFn: fetchNewReleased, staleTime:1800000}
+    const {isLoading:newReleasedLoading ,data:fetchNewRlsdTv} = useQuery({ queryKey: ['upcomingTV'], queryFn: FetchNewReleasedTV, staleTime:1800000}
     )
-    const {isLoading:trendingNowLoading ,data:fetchTrdgNowMovies} = useQuery({ queryKey: ['trending'], queryFn: fetchTrendingNow ,staleTime:1800000}
+
+    const {isLoading:highlyRtLoading, data:fetchHgTV} = useQuery({ queryKey: ['topratedTV'], queryFn: FetchHighlyRatedTV ,staleTime:1800000}
     )
-    const {isLoading:highlyRtLoading, data:fetchHgrMovies} = useQuery({ queryKey: ['toprated'], queryFn: fetchHighlyRated ,staleTime:1800000}
+
+    const {isLoading:trendingNowLoading, error, data:fetchTrdgNowTV} = useQuery({ queryKey: ['trendingTV'], queryFn: ()=>FetchTrendingApi(), staleTime:1800000}
     )
     
-
+    
     const [newReleased,setnewReleased] = useState([]);
     const [trendingNow,settrendingNow] = useState([]);
     const [highlyRated,sethighlyRated] = useState([]);
@@ -57,12 +68,10 @@ function TvShows(){
                     setnewReleased(
                         (prevData) => [...prevData, dataSelected]
                     )
-                    console.log("bagong pasok na data");
                 }else{
                     setnewReleased(
                         (prevData) => [...prevData, dataSelected]
                     )  
-                    console.log("add to the existing data");
                 }
 
 
@@ -71,12 +80,10 @@ function TvShows(){
                     settrendingNow(
                         (prevData) => [...prevData, dataSelected]
                     )
-                    console.log("bagong pasok na data");
                 }else{
                     settrendingNow(
                         (prevData) => [...prevData, dataSelected]
                     )  
-                    console.log("add to the existing data");
                 }
 
 
@@ -85,19 +92,19 @@ function TvShows(){
                     sethighlyRated(
                         (prevData) => [...prevData, dataSelected]
                     )
-                    console.log("bagong pasok na data");
                 }else{
                     sethighlyRated(
                         (prevData) => [...prevData, dataSelected]
                     )  
-                    console.log("add to the existing data");
                 }
 
     }
 
     if(newReleasedLoading) return <>{loadingPanel}</>
-    if(trendingNowLoading) return <>{loadingPanel}</>
+    if(trendingNowLoading) return <h1 style ={{color:"white"}}>"hello"</h1>
     if(highlyRtLoading) return <>{loadingPanel}</>
+
+    if (error) return 'An error has occurred: ' + error.message
 
     function loadingPanel(){
         return(
@@ -107,10 +114,12 @@ function TvShows(){
         )
     }
 
+    
+
     return(
         <>
             <div className='body-home'>
-
+                    
                 <div className="newReleases-section">
                     <h3>New Releases</h3>
                     <div className="container--fluid">
@@ -118,7 +127,7 @@ function TvShows(){
                             {
                                 fetchNewRlsdTv.results.map(
                                     (data)=>{
-                                    return <NewReleased key ={data.id} status={clickStatus} handleClick={panelSelected} panelDisplay = {false} dataItems={data}/>
+                                    return <TvShowPanel key ={data.id} status={clickStatus} handleClick={panelSelected} panelDisplay= {false} dataItems={data}/>
                                 })
                             }
                         </div>
@@ -129,12 +138,12 @@ function TvShows(){
                     <h3>Trending Now</h3>
                     <div className='container--fluid'>
                         <div className="row--data">
-                            {
-                                fetchTrdgNowMovies.results.map(
-                                    (data)=>{
-                                    return <TvTrendingNow key={data.id} status={clickStatus} handleClick={panelSelected} panelDisplay = {false} dataItems={data}/>
-                                })
-                            }
+                        {
+                            fetchTrdgNowTV.results.map(
+                                (data)=>{   
+                                    return <TvShowPanel key={data.id} status={clickStatus} handleClick={panelSelected} panelDisplay = {false} dataItems={data}/>
+                            })
+                        } 
                         </div>
                     </div>
                 </div>
@@ -144,8 +153,8 @@ function TvShows(){
                     <div className='container--fluid'>
                         <div className='row--data'>
                             {
-                                fetchHgrMovies.results.map((data)=>{
-                                    return <TvHighlyRated key={data.id} handleClick={panelSelected} panelDisplay = {false} dataItems={data}/>
+                                fetchHgTV.results.map((data)=>{
+                                    return <TvShowPanel key={data.id} handleClick={panelSelected} panelDisplay = {false} dataItems={data}/>
                                 })
                             }
                         </div>

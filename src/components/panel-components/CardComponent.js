@@ -1,8 +1,8 @@
 import {useState} from 'react';
+import '../component-styles.css';
 
-export default function TvTrendingNow(props){    
-
-    const poster_title = `https://image.tmdb.org/t/p/original/${props.dataItems.backdrop_path}`;
+const CardComponent = (props) => {
+    const poster_title = `https://image.tmdb.org/t/p/original/${props.dataItems.poster_path}`;
 
     const [displayStatus,setDisplayStatus] = useState(props.panelDisplay);
 
@@ -13,6 +13,8 @@ export default function TvTrendingNow(props){
     }
 
     const textOverview = { whiteSpace:"pre-line", width:"300px",height:"200px", overflow:"hidden", textOverflow:"ellipsis" }
+
+    
     const panelVisibility = displayStatus ? "block" : "none";
     const panelVisibilityLength = displayStatus ? "100px" : "0px";
 
@@ -22,9 +24,8 @@ export default function TvTrendingNow(props){
     }
 
 
-
-    const dateOpen = new Date(props.dataItems.first_air_date);
-
+    const dateOpen = new Date(props.dataItems.release_date);
+    
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     const month = months[dateOpen.getMonth()];
     const year = dateOpen.getFullYear();
@@ -32,16 +33,17 @@ export default function TvTrendingNow(props){
 
     return(
         <>
-            <div className = "card--movie">    
-                <div onClick={displayPanel} className="poster--content--series" style={{backgroundImage:`url("${poster_title}")`,cursor:"pointer"}} >                
+            <div className = "card--movie"  onClick={displayPanel}>    
+                <div className="poster--content" style={{backgroundImage:`url("${poster_title}")`}} >                
                 </div>
 
                 <div className="panel--info" style={infoPanel}>
-                    <h5>{props.dataItems.name}</h5>
+                    <h5>{props.dataItems.title}</h5>
                     <p style = {textOverview} >{props.dataItems.overview}</p>
                     <p><span style = {{fontWeight:800}}>Date released:</span> {`${month} ${day}, ${year}`}</p>
                     <p style = {{lineHeight:"1px"}}><span style = {{fontWeight:800}}>Popularity count:</span> {props.dataItems.vote_average}</p>
-                    <button className = "addBtn" onClick={()=>props.handleClick(props.movieId)}>Add to list</button>
+
+                    <button className = "addBtn" onClick={()=>props.handleClick(props.dataItems)}>Add to list</button>
                 </div>
 
             </div>
@@ -49,7 +51,4 @@ export default function TvTrendingNow(props){
     )
 }
 
-    
-
-
-
+export default CardComponent;

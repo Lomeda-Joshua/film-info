@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-export default function TvTrendingNow(props){    
+const TvShowPanel = (props) => {
 
     const poster_title = `https://image.tmdb.org/t/p/original/${props.dataItems.backdrop_path}`;
 
@@ -30,7 +30,7 @@ export default function TvTrendingNow(props){
     const year = dateOpen.getFullYear();
     const day = dateOpen.getDate();
 
-    return(
+    return (
         <>
             <div className = "card--movie">    
                 <div onClick={displayPanel} className="poster--content--series" style={{backgroundImage:`url("${poster_title}")`,cursor:"pointer"}} >                
@@ -49,7 +49,4 @@ export default function TvTrendingNow(props){
     )
 }
 
-    
-
-
-
+export default TvShowPanel

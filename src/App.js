@@ -37,9 +37,9 @@ function App(){
 
   return (
     <QueryClientProvider client={queryClient}>
-    <div className="App">
-       <RouterProvider router = {router} />  
-    </div>
+        <div className="App">
+          <RouterProvider router = {router} />  
+        </div>
     </QueryClientProvider>
   );
 }
