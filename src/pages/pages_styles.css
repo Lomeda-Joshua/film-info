@@ -709,6 +709,7 @@
     
     .background--contain h1{
       color:white;
+      font-family: heebo, sans-serif;
       font-size: 50px;
       text-align: left;
       font-weight:800;

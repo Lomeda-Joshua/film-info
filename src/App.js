@@ -1,5 +1,5 @@
 /** React providers **/  
-import {createBrowserRouter, createRoutesFromElements, RouterProvider, Route} from 'react-router-dom';
+import { createBrowserRouter, createRoutesFromElements, RouterProvider, Route } from 'react-router-dom';
 
 /** React Query **/  
 import { QueryClientProvider,QueryClient } from '@tanstack/react-query'; 

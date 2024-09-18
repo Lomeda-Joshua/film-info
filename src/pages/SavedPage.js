@@ -58,8 +58,6 @@ function SavedPage(){
                     </div>
                 </div>
 
-                <h3 style={{color:"white"}}>Saved section</h3>
-
                 <div className="newReleases-section">
                     <h3>New Released</h3>
                     <div className="container--fluid">

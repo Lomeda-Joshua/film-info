@@ -2,7 +2,11 @@ import {useState} from 'react';
 
 const TvShowPanel = (props) => {
 
-    const poster_title = `https://image.tmdb.org/t/p/original/${props.dataItems.backdrop_path}`;
+    // const poster_title = `https://image.tmdb.org/t/p/original/${props.dataItems.backdrop_path}`;
+    const poster_title = `https://api.themoviedb.org/3/tv/${props.dataItems.id}/images`;
+
+
+    console.log(props.dataItems.id)
 
     const [displayStatus,setDisplayStatus] = useState(props.panelDisplay);
 
