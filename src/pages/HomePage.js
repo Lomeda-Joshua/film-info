@@ -1,4 +1,5 @@
 import {useState} from 'react';
+import hero_brand from '../assets/logos/film-info-icon-bar.png'
 
 /** Axios api fetching **/  
 import axios from 'axios';
@@ -114,60 +115,83 @@ function HomePage() {
 
     return(
         <>
+
+            <div class="background-layout">
+                <div class="background-color"></div>
+            </div>
+
+
             <div className='body-home'>
 
-                <div className = "foregrounds--cover">
-                    <div className="container--contain">
-                        <div className="background--contain">
-                            <h1>WELCOME TO <span style={{color:"rgb(164, 90, 25)"}}>FILM</span>|INFO</h1>
-                            <p>Browse and save Films and TV shows</p>
-                        </div>
-                    </div>
-                </div>
-            
-
-                <div className="newReleases-section">
-                    <h3>New Releases</h3>
-                    <div className="container--fluid">
-                        <div className="row--data">
-                            {
-                                fetchNewRlsdMovies.results.map(
-                                    (data)=>{
-                                    return <CardComponent key ={data.id} status={clickStatus} handleClick={panelSelectedNewReleased} panelDisplay = {false} dataItems={data}/>
-                                })
-                            }
-                        </div>
-                    </div>
+                <div class="hero-section">
+                    <img src={hero_brand} />
+                    <h2>browse and save your next film</h2>
+                    <input type="text" placeholder="enter title"/>
                 </div>
 
-                <div className="newReleases-section">
-                    <h3>Trending Now</h3>
-                    <div className='container--fluid'>
-                        <div className="row--data">
-                            {
-                                fetchTrdgNowMovies.results.map(
-                                    (data)=>{
-                                    return <CardComponent key={data.id}status={clickStatus}  handleClick={panelSelectedTrendingNow} panelDisplay = {false} dataItems={data}/>
-                                })
-                            }
+
+                <div class="selection-carousel">
+
+                        <div className="newReleases-section">
+
+                                <div class="subhead-container">
+                                    <h1>new release</h1>
+                                    <button class="view-button">view all</button>
+                                </div>
+
+                                <div className="container--fluid">
+                                        <div className="row--data">
+                                            {
+                                                fetchNewRlsdMovies.results.map(
+                                                    (data)=>{
+                                                    return <CardComponent key ={data.id} status={clickStatus} handleClick={panelSelectedNewReleased} panelDisplay = {false} dataItems={data}/>
+                                                })
+                                            }
+                                        </div>
+                                </div>
                         </div>
-                    </div>
+
+                        <div className="newReleases-section">
+                            <div class="subhead-container">
+                                <h1>trending now</h1>
+                                <button class="view-button">view all</button>
+                            </div>
+
+                            <div className='container--fluid'>
+                                <div className="row--data">
+                                    {
+                                        fetchTrdgNowMovies.results.map(
+                                            (data)=>{
+                                            return <CardComponent key={data.id}status={clickStatus}  handleClick={panelSelectedTrendingNow} panelDisplay = {false} dataItems={data}/>
+                                        })
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div className='continue-section'>
+                            <div class="subhead-container">
+                                    <h1>highly rated</h1>
+                                    <button class="view-button">view all</button>
+                            </div>
+
+                            <div className='container--fluid'>
+                                <div className='row--data'>
+                                    {
+                                        fetchHgrMovies.results.map((data)=>{
+                                            return <CardComponent key={data.id} status={clickStatus} handleClick={panelSelectedHighlyRated} panelDisplay = {false} dataItems={data}/>
+                                        })
+                                    }
+                                </div>
+                            </div>
+                        </div>     
+
                 </div>
 
-                <div className='continue-section'>
-                    <h3>Highly rated</h3>
-                    <div className='container--fluid'>
-                        <div className='row--data'>
-                            {
-                                fetchHgrMovies.results.map((data)=>{
-                                    return <CardComponent key={data.id} status={clickStatus} handleClick={panelSelectedHighlyRated} panelDisplay = {false} dataItems={data}/>
-                                })
-                            }
-                        </div>
-                    </div>
-                </div>                
+                               
 
             </div>
+
         </>
     );
 

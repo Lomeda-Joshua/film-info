@@ -1,54 +1,53 @@
+import footer_brand from '../../assets/logos/film-info-with-branding.png';
+
 function FooterMain(){
 
     return(
-        <footer className="footer--main">
-            <div className='container'>
-                <div className="row">    
-                    <div className="col-3">
-                        <ul>
-                            <li style={{textAlign:"right"}}>
-                            <img src ="./logos/film-info-icon-bar.png" style={{width:"30%"}}/>
-                            <h4 style={{paddingTop:"10px"}}><b><span style = {{color:"#A45A19"}}>Film</span></b> | <span style = {{fontWeight:800}}>Info</span></h4>
-                            </li>
-                        </ul>
-                    </div>
-        
-                     <div className="col-3">
-                        <ul>
-                            <li>
-                                <h5 style = {{fontWeight:700, color:"#61dafb"}}>About</h5>
-                                This project is based on React JS library. <a className="footer-links" href="#">Read more here</a>
-                            </li>                            
-                        </ul>
-                    </div>
-        
-        
-                    <div className="col-3">
-                        <ul>
-                            <h5 style = {{fontWeight:700}}>Source links</h5>
-                            <li><a className="footer-links"  href= "https://react.dev/blog/2023/03/16/introducing-react-dev">React JS Library</a></li>
-                            <li><a className="footer-links"  href= "https://www.themoviedb.org/">tmdb</a></li>
-                        </ul>
-                    </div>
-        
-                    <div className="col-3">
-                        <ul>
-                            <h5 style = {{fontWeight:700}}>Legal</h5>
-                            <li><a className="footer-links" href="#">Privacy</a></li>
-                        </ul>
-                    </div> 
-        
-                </div>
-            </div>
-            
-            <hr/>
+        <footer>
 
-            <div className="footer-endDetails">
-                <p>React based project made @ 2023</p>
+            <div class="footer-container">
+
+                <div class="brand-container">
+                    <div class="row-footer">
+                        <img class="footer-brand" src={footer_brand} />
+                    </div>
+                </div>
+
+                <div class="list-container">
+
+                    <div class="row-footer" >
+                        <h2>Film Info</h2>
+                        <ul>
+                            <li><a href="#">About the project</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="row-footer middle-row">
+                        <h2>Source Links</h2>
+                        <ul>                
+                            <li><a target="_blank" href="https://react.dev/">React JS Library</a></li>
+                            <li><a target="_blank" href="https://www.themoviedb.org/">tmdb</a></li>
+                        </ul>
+                    </div>
+
+                    <div class="row-footer" >
+                        <h2>Legal</h2>
+                        <ul>
+                            <li><a href="#">tmdb library</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="footer-credits">
+                <p>React based project @ 2023</p>
             </div>
 
         </footer>
     )
-  }
+  
+}
 
-  export default FooterMain;
+export default FooterMain;

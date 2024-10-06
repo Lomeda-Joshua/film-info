@@ -34,18 +34,30 @@ export default function NewReleased(props){
 
     return(
         <>
-            <div className = "card--movie"  onClick={displayPanel}>    
-                <div className="poster--content" style={{backgroundImage:`url("${poster_title}")`}} >                
+            <div className = "content-card"  onClick={displayPanel}>    
+                <div className="poster-section" style={{backgroundImage:`url("${poster_title}")`}} >                
                 </div>
 
-                <div className="panel--info" style={infoPanel}>
+                <div class="description-section">
                     <h5>{props.dataItems.title}</h5>
-                    <p style = {textOverview} >{props.dataItems.overview}</p>
-                    <p><span style = {{fontWeight:800}}>Date released:</span> {`${month} ${day}, ${year}`}</p>
-                    <p style = {{lineHeight:"1px"}}><span style = {{fontWeight:800}}>Popularity count:</span> {props.dataItems.vote_average}</p>
+                    <p>{props.dataItems.overview}</p>
+                </div>
 
+                <div class="date-label">
+                    <p><span style = {{fontWeight:800}}>Date released:</span></p>
+                    <p> {`${month} ${day}, ${year}`} </p>
+                </div>
+
+                <div class="rate-label">
+                    <p><b>Rating: </b></p>
+                    <p>{props.dataItems.vote_average}</p>
+                </div>
+                  
+                <div class="description-buttons">
+                    <button className="section-button">view film</button>
                     <button className = "addBtn" onClick={()=>props.handleClick(props.dataItems)}>Add to list</button>
                 </div>
+                
 
             </div>
         </>
