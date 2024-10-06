@@ -5,11 +5,11 @@ Browse and save films and tv shows from the list available and custommize with y
 
 ## Features
 
-This project is built with React library and coupled with a film and tv shows API to imitate a movie and tv show library.
+This project is built with React library and connected with a film and tv shows API to imitate a movie and tv show library.
 
 The project at its initial build and release is capable of doing the following:
 
-* Mouse over to show the information about the film or tv show such as synopsis, date and rating.
+* CLick the image of the film to show the information such as synopsis, date and rating.
 * Save the title to be viewed later.
 
 ## Libraries and APIs used
