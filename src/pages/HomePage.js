@@ -130,7 +130,7 @@ function HomePage() {
                 </div>
 
 
-                <div class="selection-carousel">
+                <div class="selection-carousel">git stat
 
                         <div className="newReleases-section">
 
