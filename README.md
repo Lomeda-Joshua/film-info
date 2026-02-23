@@ -1,21 +1,24 @@
-# Film|info project
+# 🎥 Film|Info Project
 
-(initially Netflix lite project app clone) 
-Browse and save films and tv shows from the list available and custommize with your watch schedule reminder.
+**Prototype / Training Project** – Initially built as a Netflix-lite clone.  
+This project allows users to browse films and TV shows, save favorites, and set custom watch reminders to practice React development and API integration.
 
-## Features
+---
 
-This project is built with React library and connected with a film and tv shows API to imitate a movie and tv show library.
+## 💡 Features
 
-The project at its initial build and release is capable of doing the following:
+- Browse films and TV shows from the available list  
+- Click on a film or TV show image to view details: synopsis, release date, rating  
+- Save titles to a “Watch Later” list  
+- Customize your watch schedule with reminders  
 
-* CLick the image of the film to show the information such as synopsis, date and rating.
-* Save the title to be viewed later.
+> Note: This is a small project created primarily to train and practice React skills.
 
-## Libraries and APIs used
+---
 
-* React Query
-* Axios
-* tmdb
+## 🛠️ Tech Stack & Libraries
 
+- **Frontend:** React.js  
+- **API Integration:** The Movie Database (TMDb) API  
+- **Libraries:** React Query, Axios  
 
