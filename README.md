@@ -1,11 +1,11 @@
-# 🎥 Film|Info Project
+# Film|Info Project
 
 **Prototype / Training Project** – Initially built as a Netflix-lite clone.  
 This project allows users to browse films and TV shows, save favorites, and set custom watch reminders to practice React development and API integration.
 
 ---
 
-## 💡 Features
+## Features
 
 - Browse films and TV shows from the available list  
 - Click on a film or TV show image to view details: synopsis, release date, rating  
@@ -16,7 +16,7 @@ This project allows users to browse films and TV shows, save favorites, and set 
 
 ---
 
-## 🛠️ Tech Stack & Libraries
+## Tech Stack & Libraries
 
 - **Frontend:** React.js  
 - **API Integration:** The Movie Database (TMDb) API  
