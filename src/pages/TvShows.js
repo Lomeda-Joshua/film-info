@@ -114,8 +114,6 @@ function TvShows(){
         )
     }
 
-    
-
     return(
         <>
             <div className='body-home'>

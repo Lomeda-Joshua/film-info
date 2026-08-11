@@ -2,11 +2,8 @@ import {useState} from 'react';
 
 const TvShowPanel = (props) => {
 
-    // const poster_title = `https://image.tmdb.org/t/p/original/${props.dataItems.backdrop_path}`;
-    const poster_title = `https://api.themoviedb.org/3/tv/${props.dataItems.id}/images`;
-
-
-    console.log(props.dataItems.id)
+    const poster_title = `https://image.tmdb.org/t/p/original/${props.dataItems.poster_path}`;
+    // const poster_title = props.dataItems.backdrop_path;
 
     const [displayStatus,setDisplayStatus] = useState(props.panelDisplay);
 
@@ -25,8 +22,6 @@ const TvShowPanel = (props) => {
         left: panelVisibilityLength
     }
 
-
-
     const dateOpen = new Date(props.dataItems.first_air_date);
 
     const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
@@ -36,8 +31,8 @@ const TvShowPanel = (props) => {
 
     return (
         <>
-            <div className = "card--movie">    
-                <div onClick={displayPanel} className="poster--content--series" style={{backgroundImage:`url("${poster_title}")`,cursor:"pointer"}} >                
+            <div className = "card--movie" onClick={displayPanel}>    
+                <div  className="poster--content" style={{backgroundImage:`url("${poster_title}")`,cursor:"pointer"}} >                
                 </div>
 
                 <div className="panel--info" style={infoPanel}>
@@ -47,7 +42,6 @@ const TvShowPanel = (props) => {
                     <p style = {{lineHeight:"1px"}}><span style = {{fontWeight:800}}>Popularity count:</span> {props.dataItems.vote_average}</p>
                     <button className = "addBtn" onClick={()=>props.handleClick(props.movieId)}>Add to list</button>
                 </div>
-
             </div>
         </>
     )

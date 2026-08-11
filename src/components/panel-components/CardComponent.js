@@ -13,8 +13,6 @@ const CardComponent = (props) => {
     }
 
     const textOverview = { whiteSpace:"pre-line", width:"300px",height:"200px", overflow:"hidden", textOverflow:"ellipsis" }
-
-    
     const panelVisibility = displayStatus ? "block" : "none";
     const panelVisibilityLength = displayStatus ? "100px" : "0px";
 
